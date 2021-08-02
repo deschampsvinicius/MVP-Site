@@ -20,6 +20,11 @@ param(
     [string]$AzureWindowsPassword
 )
 
+# Create resource group
+Write-Host "--- Creating resource group ---" -ForegroundColor Blue
+az group create --name $ResourceGroup --location $Region
+Write-Host "--- Complete: resource group ---" -ForegroundColor Green
+
 # Setup CLI & Parameters for AKS creation
 Write-Host "--- Setting up CLI & Params ---" -ForegroundColor Blue
 az extension add --name aks-preview
